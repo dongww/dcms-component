@@ -20,20 +20,22 @@ class IntegerFilter extends Filter
 
     public function filter($value)
     {
-        if (isset($this->options['conversion'])) {
-            switch ($this->options['conversion']) {
-                case self::CONVERSION_CEIL:
-                    $value = ceil($value);
-                    break;
-                case self::CONVERSION_FLOOR:
-                    $value = floor($value);
-                    break;
-                case self::CONVERSION_ROUND:
-                    $value = round($value);
-                    break;
-                default:
-                    $value = (int)$value;
-            }
+        if (!isset($this->options['conversion'])) {
+            $this->options['conversion'] = self::CONVERSION_FLOOR;
+        }
+
+        switch ($this->options['conversion']) {
+            case self::CONVERSION_CEIL:
+                $value = ceil($value);
+                break;
+            case self::CONVERSION_FLOOR:
+                $value = floor($value);
+                break;
+            case self::CONVERSION_ROUND:
+                $value = round($value);
+                break;
+            default:
+                $value = (int)$value;
         }
 
         return (int)$value;

@@ -7,9 +7,13 @@
 
 namespace DComponent\Component\Base\String;
 
-
+/**
+ * 单行字符串
+ *
+ * Class SingleLineString
+ * @package DComponent\Component\Base\String
+ */
 class SingleLineString
 {
 //todo
 }
- 

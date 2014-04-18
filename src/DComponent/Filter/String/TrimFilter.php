@@ -7,8 +7,43 @@
 
 namespace DComponent\Filter\String;
 
+use DComponent\Core\Filter;
 
-class TrimFilter
+/**
+ * 去除边上空格
+ *
+ * Class TrimFilter
+ * @package DComponent\Filter\String
+ */
+class TrimFilter extends Filter
 {
-//todo
+    const TRIM_LEFT = 1;
+    const TRIM_RIGHT = 2;
+    const TRIM_BOTH = 3;
+
+    /**
+     * @param $value
+     * @return string
+     */
+    public function filter($value)
+    {
+        if (!isset($this->options['position'])) {
+            $this->options['position'] = self::TRIM_BOTH;
+        }
+
+        switch ($this->options['conversion']) {
+            case self::TRIM_BOTH:
+                $value = trim($value);
+                break;
+            case self::TRIM_LEFT:
+                $value = ltrim($value);
+                break;
+            case self::TRIM_RIGHT:
+            default:
+                $value = rtrim($value);
+                break;
+        }
+
+        return $value;
+    }
 }
