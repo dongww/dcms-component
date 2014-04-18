@@ -19,4 +19,6 @@ interface SimplePropertyInterface
      * @param FilterInterface[] $filters 过滤器列表
      */
     public function get($filters = []);
+
+    public function getRaw();
 }
