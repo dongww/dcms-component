@@ -11,6 +11,7 @@ namespace DComponent\Core;
 abstract class Filter implements FilterInterface
 {
     protected $options = [];
+
     public function __construct($options = [])
     {
         $this->options = $options;
