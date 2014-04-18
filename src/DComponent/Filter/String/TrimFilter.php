@@ -32,15 +32,15 @@ class TrimFilter extends Filter
         }
 
         switch ($this->options['conversion']) {
-            case self::TRIM_BOTH:
-                $value = trim($value);
-                break;
             case self::TRIM_LEFT:
                 $value = ltrim($value);
                 break;
             case self::TRIM_RIGHT:
-            default:
                 $value = rtrim($value);
+                break;
+            case self::TRIM_BOTH:
+            default:
+                $value = trim($value);
                 break;
         }
 
