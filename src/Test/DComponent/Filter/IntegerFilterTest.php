@@ -7,26 +7,26 @@
 
 namespace Test\DComponent\Filter;
 
-use DComponent\Filter\Number\IntegerFilter;
+use DComponent\Filter\Number\ToIntegerFilter;
 
-class IntegerFilterTest extends \PHPUnit_Framework_TestCase
+class ToIntegerFilterTest extends \PHPUnit_Framework_TestCase
 {
     public function testOptions()
     {
-        $f = new IntegerFilter([
-            'conversion' => IntegerFilter::CONVERSION_CEIL,
+        $f = new ToIntegerFilter([
+            'conversion' => ToIntegerFilter::CONVERSION_CEIL,
         ]);
         $this->assertEquals(13, $f->filter(12.1));
         $this->assertEquals(13, $f->filter(12.9));
 
-        $f = new IntegerFilter([
-            'conversion' => IntegerFilter::CONVERSION_FLOOR,
+        $f = new ToIntegerFilter([
+            'conversion' => ToIntegerFilter::CONVERSION_FLOOR,
         ]);
         $this->assertEquals(12, $f->filter(12.1));
         $this->assertEquals(12, $f->filter(12.9));
 
-        $f = new IntegerFilter([
-            'conversion' => IntegerFilter::CONVERSION_ROUND,
+        $f = new ToIntegerFilter([
+            'conversion' => ToIntegerFilter::CONVERSION_ROUND,
         ]);
         $this->assertEquals(12, $f->filter(12.1));
         $this->assertEquals(13, $f->filter(12.9));

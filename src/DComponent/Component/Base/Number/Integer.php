@@ -8,14 +8,14 @@
 namespace DComponent\Component\Base\Number;
 
 use DComponent\Core\SimpleProperty;
-use DComponent\Filter\Number\IntegerFilter;
+use DComponent\Filter\Number\ToIntegerFilter;
 
 class Integer extends SimpleProperty
 {
     public function get($filters = [])
     {
         if(empty($filters)){
-            $this->addCoreFilter(new IntegerFilter());
+            $this->addCoreFilter(new ToIntegerFilter());
         }
 
         return parent::get($filters);

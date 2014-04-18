@@ -7,7 +7,7 @@
  */
 
 use DComponent\Component\Base\Number\Integer;
-use DComponent\Filter\Number\IntegerFilter;
+use DComponent\Filter\Number\ToIntegerFilter;
 
 class IntegerTest extends PHPUnit_Framework_TestCase
 {
@@ -32,47 +32,44 @@ class IntegerTest extends PHPUnit_Framework_TestCase
     public function testOptions()
     {
         $integer = new Integer(12.1);
-        $integer->addCoreFilter(new IntegerFilter([
-            'conversion' => IntegerFilter::CONVERSION_FLOOR,
+        $integer->addCoreFilter(new ToIntegerFilter([
+            'conversion' => ToIntegerFilter::CONVERSION_FLOOR,
         ]));
         $this->assertEquals(12, $integer->get());
 
         $integer = new Integer(12.1);
-        $this->assertEquals(12, $integer->get([new IntegerFilter(
-                [
-                    'conversion' => IntegerFilter::CONVERSION_FLOOR,
-                ]
-            )]
-        ));
+        $this->assertEquals(12, $integer->get([new ToIntegerFilter([
+            'conversion' => ToIntegerFilter::CONVERSION_FLOOR,
+        ])]));
 
         $integer = new Integer('12.1');
-        $integer->addCoreFilter(new IntegerFilter([
-            'conversion' => IntegerFilter::CONVERSION_FLOOR,
+        $integer->addCoreFilter(new ToIntegerFilter([
+            'conversion' => ToIntegerFilter::CONVERSION_FLOOR,
         ]));
         $this->assertEquals(12, $integer->get());
 
         $integer = new Integer(12.9);
-        $integer->addCoreFilter(new IntegerFilter([
-            'conversion' => IntegerFilter::CONVERSION_FLOOR,
+        $integer->addCoreFilter(new ToIntegerFilter([
+            'conversion' => ToIntegerFilter::CONVERSION_FLOOR,
         ]));
         $this->assertEquals(12, $integer->get());
 
         $integer = new Integer('12.9');
-        $integer->addCoreFilter(new IntegerFilter([
-            'conversion' => IntegerFilter::CONVERSION_FLOOR,
+        $integer->addCoreFilter(new ToIntegerFilter([
+            'conversion' => ToIntegerFilter::CONVERSION_FLOOR,
         ]));
         $this->assertEquals(12, $integer->get());
 
         $integer = new Integer(12.1);
-        $integer->addCoreFilter(new IntegerFilter([
-            'conversion' => IntegerFilter::CONVERSION_CEIL,
+        $integer->addCoreFilter(new ToIntegerFilter([
+            'conversion' => ToIntegerFilter::CONVERSION_CEIL,
         ]));
         $this->assertEquals(13, $integer->get());
-//
-//        $integer = new Integer('12.1');
-//        $integer->addCoreFilter(new IntegerFilter([
-//            'conversion' => IntegerFilter::CONVERSION_CEIL,
-//        ]));
-//        $this->assertEquals(13, $integer->get());
+
+        $integer = new Integer('12.1');
+        $integer->addCoreFilter(new ToIntegerFilter([
+            'conversion' => ToIntegerFilter::CONVERSION_CEIL,
+        ]));
+        $this->assertEquals(13, $integer->get());
     }
 }

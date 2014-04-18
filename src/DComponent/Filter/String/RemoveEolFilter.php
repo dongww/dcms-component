@@ -23,6 +23,10 @@ class RemoveEolFilter extends Filter
      */
     public function filter($value)
     {
-        return str_replace(PHP_EOL, '', $value);
+        if (!isset($this->options['replace'])) {
+            $this->options['replace'] = '';
+        }
+
+        return str_replace(PHP_EOL, $this->options['replace'], $value);
     }
 }

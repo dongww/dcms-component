@@ -9,7 +9,7 @@ namespace DComponent\Filter\Number;
 
 use DComponent\Core\Filter;
 
-class IntegerFilter extends Filter
+class ToIntegerFilter extends Filter
 {
     /** 向下取整 */
     const CONVERSION_FLOOR = 1;
