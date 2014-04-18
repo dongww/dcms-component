@@ -31,7 +31,7 @@ class TrimFilter extends Filter
             $this->options['position'] = self::TRIM_BOTH;
         }
 
-        switch ($this->options['conversion']) {
+        switch ($this->options['position']) {
             case self::TRIM_LEFT:
                 $value = ltrim($value);
                 break;
