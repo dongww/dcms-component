@@ -10,6 +10,6 @@ namespace DComponent\Component\Base;
 
 class Money
 {
-//todo
+//todo 货币对象可进行运算
 }
  
