@@ -5,7 +5,7 @@
  * Time: 上午9:33
  */
 
-namespace DComponent\Component\Base;
+namespace DComponent\Component\Base\String;
 
 use DComponent\Core\SimpleProperty;
 

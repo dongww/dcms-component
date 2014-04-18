@@ -5,7 +5,7 @@
  * Time: 上午9:46
  */
 
-namespace DComponent\Component\Base;
+namespace DComponent\Component\Base\Number;
 
 use DComponent\Core\SimpleProperty;
 use DComponent\Filter\Number\IntegerFilter;

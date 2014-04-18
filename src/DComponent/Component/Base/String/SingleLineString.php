@@ -5,7 +5,7 @@
  * Time: 下午12:55
  */
 
-namespace DComponent\Component\Base;
+namespace DComponent\Component\Base\String;
 
 
 class SingleLineString

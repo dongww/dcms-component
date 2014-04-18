@@ -5,7 +5,7 @@
  * Time: 下午12:57
  */
 
-namespace DComponent\Component\Base;
+namespace DComponent\Component\Base\DateTime;
 
 
 class DateTime

@@ -5,10 +5,10 @@
  * Time: 下午12:56
  */
 
-namespace DComponent\Component\Base;
+namespace DComponent\Component\Base\DateTime;
 
 
-class Url
+class Date
 {
 //todo
 }

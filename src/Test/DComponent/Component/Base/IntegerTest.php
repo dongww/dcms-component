@@ -6,7 +6,7 @@
  * Time: 上午10:55
  */
 
-use DComponent\Component\Base\Integer;
+use DComponent\Component\Base\Number\Integer;
 use DComponent\Filter\Number\IntegerFilter;
 
 class IntegerTest extends PHPUnit_Framework_TestCase
