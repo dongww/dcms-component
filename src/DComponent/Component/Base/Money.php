@@ -12,4 +12,3 @@ class Money
 {
 //todo 货币对象可进行运算
 }
- 

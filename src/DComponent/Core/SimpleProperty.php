@@ -60,5 +60,10 @@ abstract class SimpleProperty implements SimplePropertyInterface
     {
         $this->coreFilters[] = $filter;
     }
+
+    public function getRaw()
+    {
+        return $this->rawValue;
+    }
 }
  
