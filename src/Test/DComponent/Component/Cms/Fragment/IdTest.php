@@ -44,5 +44,13 @@ class IdTest extends \PHPUnit_Framework_TestCase
     {
         $this->idObj->setId(14);
     }
+
+    /**
+     * @expectedException        Exception
+     */
+    public function testException1()
+    {
+        $this->idObj->setId(new Integer(15));
+    }
 }
  

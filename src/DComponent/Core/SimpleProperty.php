@@ -34,7 +34,7 @@ abstract class SimpleProperty implements SimplePropertyInterface
      * 获得属性的值，可以设置额外的过滤器
      *
      * @param FilterInterface[] $filters
-     * @return string|int|float|null
+     * @return mixed
      */
     public function get($filters = [])
     {

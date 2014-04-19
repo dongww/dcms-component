@@ -12,6 +12,10 @@ use DComponent\Filter\Number\ToIntegerFilter;
 
 class Integer extends SimpleProperty
 {
+    /**
+     * @param array $filters
+     * @return int
+     */
     public function get($filters = [])
     {
         if(empty($filters)){
