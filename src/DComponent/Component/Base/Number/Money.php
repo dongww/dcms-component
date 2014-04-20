@@ -5,7 +5,7 @@
  * Time: 下午12:58
  */
 
-namespace DComponent\Component\Base;
+namespace DComponent\Component\Base\Number;
 
 
 class Money
