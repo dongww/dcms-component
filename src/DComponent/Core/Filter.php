@@ -39,6 +39,10 @@ abstract class Filter implements FilterInterface
 
     public function addOption($option)
     {
+        if ($this->hasOption($option)) {
+            return;
+        }
+
         $this->options[] = $option;
     }
 

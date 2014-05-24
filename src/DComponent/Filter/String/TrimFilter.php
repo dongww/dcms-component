@@ -30,7 +30,7 @@ class TrimFilter extends Filter
     public function filter($value)
     {
         if (!isset($this->options['position'])) {
-            $this->options['position'] = static::OPTION_TRIM_BOTH;
+            $this->addOption(static::OPTION_TRIM_BOTH);
         }
 
         $charList = null;

@@ -21,7 +21,7 @@ class ToIntegerFilter extends Filter
     public function filter($value)
     {
         if ($this->emptyOptions()) {
-            $this->options[] = static::OPTION_CONVERSION_FLOOR;
+            $this->addOption(static::OPTION_CONVERSION_FLOOR);
         }
 
         foreach ($this->options as $option) {
