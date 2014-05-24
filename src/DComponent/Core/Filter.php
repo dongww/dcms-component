@@ -34,6 +34,7 @@ abstract class Filter implements FilterInterface
 
     public function hasParameter($parameter)
     {
+        //todo 换成 array_key_exists
         return isset($this->parameters[$parameter]) ? true : false;
     }
 
