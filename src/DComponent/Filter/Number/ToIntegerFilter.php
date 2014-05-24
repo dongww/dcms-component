@@ -12,30 +12,29 @@ use DComponent\Core\Filter;
 class ToIntegerFilter extends Filter
 {
     /** 向下取整 */
-    const CONVERSION_FLOOR = 1;
+    const OPTION_CONVERSION_FLOOR = 1;
     /** 向上取整 */
-    const CONVERSION_CEIL = 2;
+    const OPTION_CONVERSION_CEIL = 2;
     /** 四舍五入 */
-    const CONVERSION_ROUND = 3;
+    const OPTION_CONVERSION_ROUND = 3;
 
     public function filter($value)
     {
-        if (!isset($this->options['conversion'])) {
-            $this->options['conversion'] = self::CONVERSION_FLOOR;
+        if ($this->emptyOptions()) {
+            $this->options[] = static::OPTION_CONVERSION_FLOOR;
         }
 
-        switch ($this->options['conversion']) {
-            case self::CONVERSION_CEIL:
-                $value = ceil($value);
-                break;
-            case self::CONVERSION_FLOOR:
-                $value = floor($value);
-                break;
-            case self::CONVERSION_ROUND:
-                $value = round($value);
-                break;
-            default:
-                $value = (int)$value;
+        foreach ($this->options as $option) {
+            switch ($option) {
+                case static::OPTION_CONVERSION_CEIL:
+                    $value = ceil($value);
+                    break;
+                case static::OPTION_CONVERSION_ROUND:
+                    $value = round($value);
+                    break;
+                case static::OPTION_CONVERSION_FLOOR:
+                    $value = floor($value);
+            }
         }
 
         return (int)$value;

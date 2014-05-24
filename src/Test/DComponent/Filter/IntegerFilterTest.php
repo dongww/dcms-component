@@ -14,19 +14,19 @@ class ToIntegerFilterTest extends \PHPUnit_Framework_TestCase
     public function testOptions()
     {
         $f = new ToIntegerFilter([
-            'conversion' => ToIntegerFilter::CONVERSION_CEIL,
+            'conversion' => ToIntegerFilter::OPTION_CONVERSION_CEIL,
         ]);
         $this->assertEquals(13, $f->filter(12.1));
         $this->assertEquals(13, $f->filter(12.9));
 
         $f = new ToIntegerFilter([
-            'conversion' => ToIntegerFilter::CONVERSION_FLOOR,
+            'conversion' => ToIntegerFilter::OPTION_CONVERSION_FLOOR,
         ]);
         $this->assertEquals(12, $f->filter(12.1));
         $this->assertEquals(12, $f->filter(12.9));
 
         $f = new ToIntegerFilter([
-            'conversion' => ToIntegerFilter::CONVERSION_ROUND,
+            'conversion' => ToIntegerFilter::OPTION_CONVERSION_ROUND,
         ]);
         $this->assertEquals(12, $f->filter(12.1));
         $this->assertEquals(13, $f->filter(12.9));

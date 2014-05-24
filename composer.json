@@ -4,6 +4,9 @@
             "": "src/"
         }
     },
+    "require": {
+        "danielstjules/stringy": "~1.5"
+    },
     "require-dev": {
         "phpunit/phpunit": "3.7.*"
     }

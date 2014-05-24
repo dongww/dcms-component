@@ -17,9 +17,11 @@ use DComponent\Core\Filter;
  */
 class TrimFilter extends Filter
 {
-    const TRIM_LEFT = 1;
-    const TRIM_RIGHT = 2;
-    const TRIM_BOTH = 3;
+    const PARAM_TRIM_CHAR_LIST = 'charList';
+
+    const OPTION_TRIM_LEFT  = 1;
+    const OPTION_TRIM_RIGHT = 2;
+    const OPTION_TRIM_BOTH  = 3;
 
     /**
      * @param $value
@@ -28,21 +30,32 @@ class TrimFilter extends Filter
     public function filter($value)
     {
         if (!isset($this->options['position'])) {
-            $this->options['position'] = self::TRIM_BOTH;
+            $this->options['position'] = static::OPTION_TRIM_BOTH;
         }
 
-        switch ($this->options['position']) {
-            case self::TRIM_LEFT:
-                $value = ltrim($value);
-                break;
-            case self::TRIM_RIGHT:
-                $value = rtrim($value);
-                break;
-            case self::TRIM_BOTH:
-            default:
-                $value = trim($value);
-                break;
+        $charList = null;
+        if ($this->hasParameter(static::PARAM_TRIM_CHAR_LIST)) {
+            $charList = $this->parameters[static::PARAM_TRIM_CHAR_LIST];
         }
+
+        if ($this->emptyOptions()) {
+            $this->options[] = static::OPTION_TRIM_BOTH;
+        }
+
+        foreach ($this->options as $option) {
+            switch ($option) {
+                case static::OPTION_TRIM_LEFT:
+                    $value = $charList === null ? ltrim($value) : ltrim($value, $charList);
+                    break;
+                case static::OPTION_TRIM_RIGHT:
+                    $value = $charList === null ? rtrim($value) : rtrim($value, $charList);
+                    break;
+                case static::OPTION_TRIM_BOTH:
+                    $value = $charList === null ? trim($value) : trim($value, $charList);
+                    break;
+            }
+        }
+
 
         return $value;
     }

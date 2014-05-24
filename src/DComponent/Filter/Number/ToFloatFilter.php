@@ -11,24 +11,28 @@ use DComponent\Core\Filter;
 
 class ToFloatFilter extends Filter
 {
+    /** 小数位 */
+    const PARAM_DECIMALS = 'decimals';
+
+    /** 四舍五入 */
+    const OPTION_CONVERSION_ROUND = 1;
+
     /**
      * @param $value
      * @return mixed
      */
     public function filter($value)
     {
-        if (!isset($this->options['decimals'])) {
-            $this->options['decimals'] = 2;
-        }
-
-        if (!isset($this->options['round'])) {
-            $this->options['round'] = true;
-        }
-
-        if ($this->options['round']) {
-            $value = round($value, $this->options['decimals']);
+        if (!$this->hasParameter(static::PARAM_DECIMALS)) {
+            $decimals = 2;
         } else {
-            $value = number_format($value, $this->options['decimals']);
+            $decimals = (int)$this->parameters[static::PARAM_DECIMALS];
+        }
+
+        if ($this->hasOption(static::OPTION_CONVERSION_ROUND)) {
+            $value = round($value, $decimals);
+        } else {
+            $value = round($value, $decimals, PHP_ROUND_HALF_DOWN);
         }
 
         return $value;
