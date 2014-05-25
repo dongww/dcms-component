@@ -25,17 +25,12 @@ abstract class Filter implements FilterInterface
 
     public function hasOption($option)
     {
-        if (in_array($option, $this->options)) {
-            return true;
-        }
-
-        return false;
+        return in_array($option, $this->options) ? true : false;
     }
 
     public function hasParameter($parameter)
     {
-        //todo 换成 array_key_exists
-        return isset($this->parameters[$parameter]) ? true : false;
+        return array_key_exists($parameter, $this->parameters) ? true : false;
     }
 
     public function addOption($option)
