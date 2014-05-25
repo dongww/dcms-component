@@ -65,5 +65,10 @@ abstract class SimpleProperty implements SimplePropertyInterface
     {
         return $this->rawValue;
     }
+
+    public function __invoke($value, $filters = [])
+    {
+        $this->set($value);
+        return $this->get($filters);
+    }
 }
- 
