@@ -18,6 +18,7 @@ class ToIntegerFilterTest extends \PHPUnit_Framework_TestCase
         ]);
         $this->assertEquals(13, $f->filter(12.1));
         $this->assertEquals(13, $f->filter(12.9));
+        $this->assertEquals(13, $f(12.9));
 
         $f = new ToIntegerFilter([
             ToIntegerFilter::OPTION_CONVERSION_FLOOR,

@@ -59,6 +59,6 @@ abstract class Filter implements FilterInterface
 
     public function __invoke($value)
     {
-        $this->filter($value);
+        return $this->filter($value);
     }
 }
