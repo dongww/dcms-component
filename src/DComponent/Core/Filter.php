@@ -56,4 +56,9 @@ abstract class Filter implements FilterInterface
     {
         return count($this->parameters) ? false : true;
     }
+
+    public function __invoke($value)
+    {
+        $this->filter($value);
+    }
 }
